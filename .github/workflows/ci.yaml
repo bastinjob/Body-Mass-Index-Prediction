@@ -21,6 +21,6 @@ jobs:
         pip install -r requirements.txt
 
     - name: Sample Message
-      run: python3 -c "print("Github Actions Passed!")"
-       
+      run: python3 -c "print('Github Actions Passed!')"
+
     
