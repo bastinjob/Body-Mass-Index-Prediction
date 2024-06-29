@@ -7,6 +7,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import OneHotEncoder
+import pickle
 
 def preprocess_data(dataset_path='data/bmi_train.csv'):
 
@@ -28,6 +29,10 @@ def preprocess_data(dataset_path='data/bmi_train.csv'):
     df_final = pd.concat([df_encoded.drop(columns=['Height','Weight'],axis=1), df_scaled], axis=1)
 
     #print(df_final)
+
+    with open('preprocess_models/scaler.pkl','wb') as f:
+        pickle.dump(scaler, f)
+
 
     return df_final
 
