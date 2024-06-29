@@ -20,7 +20,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Sample Message
-      run: python3 -c "print('Github Actions Passed!')"
+    - name: Pipeline smaple run
+      run: python3 pipeline_run.py
 
     
