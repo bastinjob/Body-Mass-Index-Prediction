@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Enter Your Data</h1>
+    <form action="/predict" method="post">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br><br>
+        <label for="height">Height(cm):</label>
+        <input type="text" id="height" name="height"><br><br>
+        <label for="weight">Weight(kg):</label>
+        <input type="text" id="weight" name="weight"><br><br>
+        <input type="submit" value="Predict">
+    </form>
+    <br>
+    <h2>Or Upload a CSV File</h2>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file"><br><br>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>

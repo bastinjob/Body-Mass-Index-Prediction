@@ -13,10 +13,13 @@ def validate_test_data(test_data_path,model_path, scaler_path):
 
     test_df = pd.read_csv(test_data_path)
 
-    test_df_encoded = pd.get_dummies(test_df, columns=['Gender'])
-    scaled_hw = pd.DataFrame(scaler.transform(test_df_encoded[['Height', 'Weight']]), columns = ['Height', 'Weight'])
+    #test_df_encoded = pd.get_dummies(test_df, columns=['Gender'])
 
-    final_test_df = pd.concat([scaled_hw, test_df_encoded.drop(columns=['Height','Weight'],axis=1)],axis=1)
+    test_df['Gender_encoded'] = [1. if gender == 'Male' else 0. for gender in test_df['Gender'].values]
+
+    scaled_hw = pd.DataFrame(scaler.transform(test_df[['Height', 'Weight']]), columns = ['Height', 'Weight'])
+
+    final_test_df = pd.concat([scaled_hw, test_df.drop(columns=['Height','Weight','Gender'],axis=1)],axis=1)
 
     preds = model.predict(final_test_df.values)
 
