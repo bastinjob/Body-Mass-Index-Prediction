@@ -8,8 +8,7 @@ def validate_test_data(test_data_path,model_path, scaler_path):
     with open(model_path, 'rb') as f:
         model = pickle.load(f)
 
-    with open(scaler_path, 'rb') as f:
-        scaler = pickle.load(f)
+
 
     test_df = pd.read_csv(test_data_path)
 
@@ -17,9 +16,8 @@ def validate_test_data(test_data_path,model_path, scaler_path):
 
     test_df['Gender_encoded'] = [1. if gender == 'Male' else 0. for gender in test_df['Gender'].values]
 
-    scaled_hw = pd.DataFrame(scaler.transform(test_df[['Height', 'Weight']]), columns = ['Height', 'Weight'])
 
-    final_test_df = pd.concat([scaled_hw, test_df.drop(columns=['Height','Weight','Gender'],axis=1)],axis=1)
+    final_test_df = test_df.drop(columns=['Gender'],axis=1)
 
     preds = model.predict(final_test_df.values)
 

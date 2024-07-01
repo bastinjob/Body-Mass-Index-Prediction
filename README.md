@@ -42,7 +42,7 @@ The Full Scale Body Mass Index Prediction System is designed to predict the BMI 
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/bmi-prediction-system.git
-cd bmi-prediction-system
+git clone https://github.com/bastinjob/Body-Mass-Index-Prediction.git
+cd Body-Mass-Index-Prediction
 
 

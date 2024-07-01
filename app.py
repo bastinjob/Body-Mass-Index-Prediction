@@ -14,8 +14,7 @@ app = Flask(__name__)
 with open('models/random_forest_classifier_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
-with open('preprocess_models/scaler.pkl', 'rb') as f:
-    scaler = pickle.load(f)
+
 
 dict_bmi = {
             0: 'Extremely Weak',
@@ -33,15 +32,8 @@ def preprocess_inputs(gender, height, weight):
 
     input_df = pd.DataFrame({'Gender_encoded':[gender_encoded], 'Height':[height], 'Weight':[weight]})
 
-    scaled_features = scaler.fit_transform(input_df[['Height', 'Weight']])
 
-    # Create a DataFrame with the scaled features
-    df_scaled = pd.DataFrame(scaled_features, columns=['Height_scaled', 'Weight_scaled'])
-
-    # Concatenate with the original DataFrame (if needed)
-    df_final = pd.concat([input_df.drop(columns=['Height','Weight'],axis=1), df_scaled], axis=1)
-
-    return df_final.values
+    return input_df.values
 
 @app.route('/')
 def home():
