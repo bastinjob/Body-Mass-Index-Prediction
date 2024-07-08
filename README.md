@@ -17,6 +17,7 @@ This project is a comprehensive Body Mass Index (BMI) prediction system designed
 
 The Full Scale Body Mass Index Prediction System predicts the BMI category based on user inputs such as gender, height, and weight. The serverless deployment ensures scalability and cost-effectiveness by leveraging AWS Lambda and Zappa for seamless function execution.
 
+![Deployment Flow Chart](SLD_FC.png)
 ## Features
 
 - **BMI Prediction**: Predicts BMI category based on user inputs.
