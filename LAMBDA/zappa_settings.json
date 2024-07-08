@@ -5,6 +5,9 @@
         "profile_name": "default",
         "project_name": "bmi-predictor",
         "runtime": "python3.8",
+        "slim_handler": true,
+        "memory_size": 512,
+        "timeout_seconds": 30,
         "s3_bucket": "dev-alpha"
     }
 }
